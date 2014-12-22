@@ -2,9 +2,11 @@ Image_Viewer
 ============
 
 Crunchy Roll Code Challenge: Image Viewer
-   Create an image viewer app:
-    *You can find a mockup of the app here: https://projects.invisionapp.com/share/XWNJ2I67
-     *the app only needs to support iOS 7 on iPhone
+
+Create an image viewer app:
+
+*You can find a mockup of the app here: https://projects.invisionapp.com/share/XWNJ2I67
+	*the app only needs to support iOS 7 on iPhone
     *Retrieve the list of images from here: http://dl.dropbox.com/u/89445730/images.json
 ￼￼o o o
 o
