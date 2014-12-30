@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4Ip-Wh-ret">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--Crunchyroll Image Viewer-->
+        <scene sceneID="0h7-8O-fBG">
+            <objects>
+                <tableViewController id="mbX-Lu-sPI" customClass="TableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dCB-Ie-HlM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImagesTableViewCell" id="Jdl-oU-rYh">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jdl-oU-rYh" id="OPD-H2-kcx">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="oDD-8V-WG7" kind="show" identifier="ShowImageDetails" id="KCf-T6-BR4"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="mbX-Lu-sPI" id="k9T-pE-5b7"/>
+                            <outlet property="delegate" destination="mbX-Lu-sPI" id="oLa-Cs-b8u"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Crunchyroll Image Viewer" id="shZ-pP-bmR">
+                        <barButtonItem key="backBarButtonItem" title="Menu" id="kxM-Rp-Qkf"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ap9-ri-uq6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="769" y="35"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="4wr-k2-C5b">
+            <objects>
+                <viewController id="oDD-8V-WG7" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="isK-zD-3oh"/>
+                        <viewControllerLayoutGuide type="bottom" id="DVE-uQ-4hW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CqV-M4-lIf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="f3k-jQ-Baa">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R6N-td-yLC">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <connections>
+                                    <outlet property="delegate" destination="oDD-8V-WG7" id="AAm-rh-HrJ"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="R6N-td-yLC" firstAttribute="bottom" secondItem="DVE-uQ-4hW" secondAttribute="top" id="1SU-iV-uC2"/>
+                            <constraint firstAttribute="trailing" secondItem="R6N-td-yLC" secondAttribute="trailing" id="5v1-3c-wN4"/>
+                            <constraint firstItem="f3k-jQ-Baa" firstAttribute="centerY" secondItem="CqV-M4-lIf" secondAttribute="centerY" id="A4l-AB-cKP"/>
+                            <constraint firstItem="R6N-td-yLC" firstAttribute="leading" secondItem="CqV-M4-lIf" secondAttribute="leading" id="LFX-QF-L0f"/>
+                            <constraint firstItem="R6N-td-yLC" firstAttribute="centerX" secondItem="f3k-jQ-Baa" secondAttribute="centerX" id="gAL-Jm-xXx"/>
+                            <constraint firstItem="R6N-td-yLC" firstAttribute="top" secondItem="isK-zD-3oh" secondAttribute="bottom" id="oEq-TF-v6G"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="VMa-sO-G5t" appends="YES" id="fo3-d9-zD8"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="9X6-Zl-qJs">
+                        <barButtonItem key="rightBarButtonItem" title="Info" id="hjF-dG-eP7">
+                            <connections>
+                                <action selector="displayCaptionAsAlert:" destination="oDD-8V-WG7" id="Dsr-n1-gfv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="f3k-jQ-Baa" id="MSD-s8-B4I"/>
+                        <outlet property="scrollView" destination="R6N-td-yLC" id="7uq-zn-rSK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WMK-Kv-Rir" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="VMa-sO-G5t">
+                    <connections>
+                        <action selector="toggleStatusAndNavigationBar:" destination="oDD-8V-WG7" id="IVa-0k-zTg"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1583" y="36"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="f2O-Aw-X4E">
+            <objects>
+                <navigationController id="4Ip-Wh-ret" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="htX-h8-c2J">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="mbX-Lu-sPI" kind="relationship" relationship="rootViewController" id="3ne-8S-Vzz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ndC-ai-AKJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-51" y="36"/>
+        </scene>
+    </scenes>
+</document>
